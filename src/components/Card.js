@@ -19,7 +19,6 @@ function Card({data}) {
   }, [isSelected, data]);
 
   const handleClick = (event) => {
-    console.log(event);
     setIsSelected(!isSelected);
     setFirstSelect(true);
   };
@@ -53,7 +52,10 @@ function Card({data}) {
         <header className="card__header">
           <div className="card__corner"></div>
           <div className="card__rectangle">
-            {isSelected && mouseOnCard && !firstSelect ? (
+            {isSelected &&
+            mouseOnCard &&
+            !firstSelect &&
+            cardType !== "disabled" ? (
               <p className={"card__slogan card__slogan--selected"}>
                 Котэ не одобряет?
               </p>
